@@ -32,7 +32,7 @@ function Contact() {
         try {
             if (firstName && lastName && email && phone) {
                 const newContact = { firstName, lastName, email, phone };
-                const response = await axios.post(`http://localhost:8080/contact/create`, newContact);
+                const response = await axios.post(`https://taiyo-ai-assignment.vercel.app/create`, newContact);
                 dispatch(createContact(response.data));
             } else {
                 throw new Error('All fields are required.');
