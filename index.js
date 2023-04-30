@@ -8,6 +8,10 @@ app.use(cors())
 
 app.use('/contact', contactRoutes);
 
+app.get('/',async(req,res)=>{
+    res.status(200).send("Taiyo Assignment Contact Database is Live!");
+})
+
 
 connectDB()
 app.listen(8080,()=>{
