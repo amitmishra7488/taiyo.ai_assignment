@@ -28,7 +28,7 @@ const ContactCard = () => {
 
     const fetchContacts = async () => {
         try {
-            const response = await axios.get('https://taiyo-ai-assignment.vercel.app/contact');
+            const response = await axios.get('https://taiyo-ai-assignment.vercel.app/contact/');
             dispatch(fetchContactData(response.data));
         } catch (error) {
             console.error(error);
@@ -62,7 +62,7 @@ const ContactCard = () => {
             updatedContact.phone = phone;
         }
         try {
-            await axios.put(`https://taiyo-ai-assignment.vercel.app/contact${selectedContact}`, updatedContact);
+            await axios.put(`https://taiyo-ai-assignment.vercel.app/contact/${selectedContact}`, updatedContact);
             dispatch(updateContact(selectedContact, updatedContact));
         } catch (error) {
             console.error(error);
@@ -73,7 +73,7 @@ const ContactCard = () => {
 
     const handleRemove = async (id) => {
         try {
-            await axios.delete(`https://taiyo-ai-assignment.vercel.app/contact${id}`);
+            await axios.delete(`https://taiyo-ai-assignment.vercel.app/contact/${id}`);
             dispatch(deleteContact(id));
         } catch (error) {
             console.error(error);
